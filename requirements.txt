@@ -1,0 +1,4 @@
+google-genai==2.31.0
+matplotlib==3.11.2
+numpy==2.5.4
+pytest==9.1.1

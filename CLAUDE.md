@@ -6,7 +6,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 COMP 480/580 Assignment 1 (due 2026-10-21): use **Bloom filters** to compress long LLM contexts before question answering, and study the tradeoff between Bloom filter memory, false-positive rate, retained context, LLM input tokens, latency, and QA accuracy. The full spec is `assignment/assignment_description.pdf`; `assignment/README.md` is a shorter summary of it.
 
-No implementation code exists yet. The only content is the provided data under `assignment/`.
+The design is in `specs.md` (the source of truth), and the code is in `src/`, following its module layout. `README.md` has the commands:
+
+- tests: `.venv/bin/python -m pytest -q`; a single test: `.venv/bin/python -m pytest tests/test_bloom.py::test_no_false_negatives`
+- offline experiments, no LLM: `.venv/bin/python src/main.py experiments --offline-only`
+- paid Gemini runs: `.venv/bin/python src/main.py experiments --stage all`
+
+Modules import each other flat from `src/` (tests add it to `sys.path` in `tests/conftest.py`). Only `evaluate.py` may read `assignment/answers/`.
 
 ## Hard requirements from the spec
 
