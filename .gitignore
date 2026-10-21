@@ -3,4 +3,11 @@
 __pycache__/
 .pytest_cache/
 cache/
-results/
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+.env
